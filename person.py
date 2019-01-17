@@ -26,6 +26,14 @@ class Manager(Person):
         print("giveRaise from Manager.")
         Person.giveRaise(self, percent + bonus)
 
+    def __getattr__(self, item):
+        print("No such attribute.")
+
+
+class Department:
+    def __init__(self, *args):
+        self.members = list(args)
+
 
 if __name__ == '__main__':
     bob = Person('Bob Smith')
@@ -46,3 +54,5 @@ if __name__ == '__main__':
     for object in (bob, sue, tom):
         object.giveRaise(.10)
         print(object)
+
+
